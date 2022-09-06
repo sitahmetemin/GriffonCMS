@@ -8,7 +8,9 @@
     <title>Griffon Admin</title>
     <!-- plugins:css -->
     <link rel="stylesheet" href="~/admin_assets/vendors/mdi/css/materialdesignicons.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,500,600,700,900%7COpen+Sans:400" rel="stylesheet">
     <link rel="stylesheet" href="~/admin_assets/vendors/css/vendor.bundle.base.css">
+    <link href="~/startpage_assets/css/style.css" rel="stylesheet" type="text/css" media="all" />
     <!-- endinject -->
     <!-- Plugin css for this page -->
     <!-- End plugin css for this page -->
@@ -24,47 +26,18 @@
       <!-- partial:partials/_navbar.html -->
       <nav class="navbar default-layout-navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
             <div class="text-center navbar-brand-wrapper d-flex align-items-center ">
-                <a class="navbar-brand brand-logo" href="index.html"><img src="~/admin_assets/images/image2vector.svg" alt="logo" /></a>
-                <a class="navbar-brand brand-logo-mini" href="index.html"><img src="~/admin_assets/images/logo-mini.svg" alt="logo" /></a>
+                <a class="navbar-brand">Griffon</a>
+               @* <a class="navbar-brand brand-logo" href="index.html"><img src="~/admin_assets/images/image2vector.svg" alt="logo" /></a>
+                <a class="navbar-brand brand-logo-mini" href="index.html"><img src="~/admin_assets/images/logo-mini.svg" alt="logo" /></a>*@
         </div>
         <div class="navbar-menu-wrapper d-flex align-items-stretch">
           <button class="navbar-toggler navbar-toggler align-self-center" type="button" data-toggle="minimize">
             <span class="mdi mdi-menu"></span>
           </button>
-          <div class="search-field d-none d-md-block">
-            <form class="d-flex align-items-center h-100" action="#">
-              <div class="input-group">
-                <div class="input-group-prepend bg-transparent">
-                  <i class="input-group-text border-0 mdi mdi-magnify"></i>
-                </div>
-                <input type="text" class="form-control bg-transparent border-0" placeholder="Search projects">
-              </div>
-            </form>
-          </div>
+         
+
           <ul class="navbar-nav navbar-nav-right">
-            <li class="nav-item nav-profile dropdown">
-              <a class="nav-link dropdown-toggle" id="profileDropdown" href="#" data-toggle="dropdown" aria-expanded="false">
-                <div class="nav-profile-img">
-                                <img src="~/admin_assets/images/faces/face1.jpg" alt="image">
-                  <span class="availability-status online"></span>
-                </div>
-                <div class="nav-profile-text">
-                  <p class="mb-1 text-black">David Greymaax</p>
-                </div>
-              </a>
-              <div class="dropdown-menu navbar-dropdown" aria-labelledby="profileDropdown">
-                <a class="dropdown-item" href="#">
-                  <i class="mdi mdi-cached mr-2 text-success"></i> Activity Log </a>
-                <div class="dropdown-divider"></div>
-                <a class="dropdown-item" href="#">
-                  <i class="mdi mdi-logout mr-2 text-primary"></i> Signout </a>
-              </div>
-            </li>
-            <li class="nav-item d-none d-lg-block full-screen-link">
-              <a class="nav-link">
-                <i class="mdi mdi-fullscreen" id="fullscreen-button"></i>
-              </a>
-            </li>
+
             <li class="nav-item dropdown">
               <a class="nav-link count-indicator dropdown-toggle" id="messageDropdown" href="#" data-toggle="dropdown" aria-expanded="false">
                 <i class="mdi mdi-email-outline"></i>
@@ -153,16 +126,25 @@
                 <h6 class="p-3 mb-0 text-center">See all notifications</h6>
               </div>
             </li>
-            <li class="nav-item nav-logout d-none d-lg-block">
-              <a class="nav-link" href="#">
-                <i class="mdi mdi-power"></i>
+               <li class="nav-item nav-profile dropdown">
+              <a class="nav-link dropdown-toggle" id="profileDropdown" href="#" data-toggle="dropdown" aria-expanded="false">
+                <div class="nav-profile-img">
+                                <img src="~/admin_assets/images/faces/face1.jpg" alt="image">
+                  <span class="availability-status online"></span>
+                </div>
+                <div class="nav-profile-text">
+                  <p class="mb-1 text-black">David Greymaax</p>
+                </div>
               </a>
-            </li>
-            <li class="nav-item nav-settings d-none d-lg-block">
-              <a class="nav-link" href="#">
-                <i class="mdi mdi-format-line-spacing"></i>
-              </a>
-            </li>
+              <div class="dropdown-menu navbar-dropdown" aria-labelledby="profileDropdown">
+                <a class="dropdown-item" href="#">
+                  <i class="mdi mdi-cached mr-2 text-success"></i> Activity Log </a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="#">
+                  <i class="mdi mdi-logout mr-2 text-primary"></i> Signout </a>
+              </div>
+            </li>         
+
           </ul>
           <button class="navbar-toggler navbar-toggler-right d-lg-none align-self-center" type="button" data-toggle="offcanvas">
             <span class="mdi mdi-menu"></span>
@@ -174,7 +156,7 @@
         <!-- partial:partials/_sidebar.html -->
         <nav class="sidebar sidebar-offcanvas" id="sidebar">
           <ul class="nav">
-            <li class="nav-item nav-profile">
+           @* <li class="nav-item nav-profile">
               <a href="#" class="nav-link">
                 <div class="nav-profile-image">
                                 <img src="~/admin_assets/images/faces/face1.jpg" alt="profile">
@@ -187,9 +169,9 @@
                 </div>
                 <i class="mdi mdi-bookmark-check text-success nav-profile-badge"></i>
               </a>
-            </li>
+            </li>*@
             <li class="nav-item">
-              <a class="nav-link" href="index.html">
+              <a class="nav-link" href="@Url.Action("Index","Dashboard", new { Area = "Admin" })">
                 <span class="menu-title">Dashboard</span>
                 <i class="mdi mdi-home menu-icon"></i>
               </a>
@@ -237,7 +219,7 @@
               </a>
             </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="pages/tables/basic-table.html">
+                        <a class="nav-link" href="@Url.Action("Index","AdminBlog", new { Area = "Admin" })">
                             <span class="menu-title">Blog</span>
                             <i class="mdi mdi-table-large menu-icon"></i>
                         </a>
@@ -254,7 +236,7 @@
                 <div class="border-bottom">
                   <h6 class="font-weight-normal mb-3">Projects</h6>
                 </div>
-                        <button class="btn btn-block btn-lg btn-gradient-primary mt-4" onclick="location.href='@Url.Action("Index", "Home")'">Show Website</button>
+                        <button class="btn btn-block btn-lg btn-gradient-primary mt-4" onclick="location.href='@Url.Action("Index", "Home", new { Area = "" })'">Show Website</button>
                         <!--  </span> -->
             </li>
           </ul>
@@ -262,9 +244,9 @@
         <!-- partial -->
             <div class="main-panel">
                 <div class="content-wrapper">
-                    <div class="page-header">
+                    
                         @RenderBody()
-                    </div>
+                   
                  </div>
              </div>
         <!-- main-panel ends -->
@@ -287,6 +269,7 @@
     <!-- Custom js for this page -->
     <script src="~/admin_assets/js/dashboard.js"></script>
     <script src="~/admin_assets/js/todolist.js"></script>
+    <script src="~/admin_assets/js/selectbox.js"></script>
     <!-- End custom js for this page -->
   </body>
 </html>
