@@ -8,13 +8,13 @@ namespace GriffonCMS.Core.Repositories.Base;
 
 public class BaseRepository<TEntity, TPK> : IBaseRepository<TEntity, TPK>
     where TPK : notnull
-    where TEntity : BaseEntity<TPK>
+    where TEntity : BaseEntity<TPK> 
 {
     #region Props
     private readonly GriffonEFContext _dbContext;
     protected readonly DbSet<TEntity> _dbSet;
     #endregion
-
+    
     #region Methods
     public BaseRepository(GriffonEFContext dbContext)
     {

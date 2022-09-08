@@ -9,7 +9,7 @@ using GriffonCMS.Domain.Entities.Category;
 using GriffonCMS.Domain.Repositories;
 
 namespace GriffonCMS.Core.Repositories;
-public class CategoryRepository : BaseRepository<Category, Guid>, ICategoryRepository
+public class CategoryRepository : BaseRepository<CategoryEntity, Guid>, ICategoryRepository
 {
     public CategoryRepository(GriffonEFContext dbContext) : base(dbContext)
     {

@@ -8,6 +8,6 @@ using GriffonCMS.Domain.Repositories.Base.Abstract;
 
 
 namespace GriffonCMS.Domain.Repositories;
-public interface IAdminRepository : IBaseRepository<Admin, Guid>
+public interface IAdminRepository : IBaseRepository<AdminEntity, Guid>
 {
 }
