@@ -1,4 +1,6 @@
-﻿using GriffonCMS.Infrastructure.Command;
+﻿using GriffonCMS.Infrastructure.Command.Users;
+using GriffonCMS.Infrastructure.Queries.Categories;
+using GriffonCMS.Infrastructure.Queries.Users;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 
@@ -16,10 +18,15 @@ public class UserController : ControllerBase
         _mediator = mediator;
     }
     protected IMediator Mediator => _mediator ??= HttpContext.RequestServices.GetService<IMediator>();
-
-    [HttpPost]
-    public async Task<IActionResult> Post(CreateUserCommand command)
+    [HttpGet]
+    public async Task<IActionResult> Get()
     {
-        return Ok(await Mediator.Send(command));
+        var query = new GetUserQuery();
+        return Ok(await Mediator.Send(query));
+    }
+    [HttpDelete("{id}")]
+    public async Task<IActionResult> Delete(Guid id)
+    {
+        return Ok(await Mediator.Send(new DeleteUserByIdCommand { Id = id }));
     }
 }

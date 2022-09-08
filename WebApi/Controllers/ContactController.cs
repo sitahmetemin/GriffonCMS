@@ -1,4 +1,7 @@
-﻿using GriffonCMS.Infrastructure.Command;
+﻿
+using GriffonCMS.Infrastructure.Command.Contacts;
+using GriffonCMS.Infrastructure.Queries.Categories;
+using GriffonCMS.Infrastructure.Queries.Contacts;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 
@@ -15,10 +18,20 @@ public class ContactController : ControllerBase
         _mediator = mediator;
     }
     protected IMediator Mediator => _mediator ??= HttpContext.RequestServices.GetService<IMediator>();
-
+    [HttpGet]
+    public async Task<IActionResult> Get()
+    {
+        var query = new GetContactQuery();
+        return Ok(await Mediator.Send(query));
+    }
     [HttpPost]
     public async Task<IActionResult> Post2(CreateContactCommand command)
     {
         return Ok(await Mediator.Send(command));
+    }
+    [HttpDelete("{id}")]
+    public async Task<IActionResult> Delete(Guid id)
+    {
+        return Ok(await Mediator.Send(new DeleteContactByIdCommand { Id = id }));
     }
 }

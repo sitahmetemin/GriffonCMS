@@ -21,9 +21,7 @@ using GriffonCMS.Infrastructure.Utils.Security.Jwt;
 using MediatR;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
-
 var builder = WebApplication.CreateBuilder(args);
-
 // Add services to the container.
 builder.Services.AddMediatR(Assembly.GetExecutingAssembly());
 builder.Services.AddMediatR(typeof(CreateCategoryCommandHandler).GetTypeInfo().Assembly);
@@ -37,7 +35,6 @@ builder.Services.AddMediatR(typeof(CreateSkillCommandHandler).GetTypeInfo().Asse
 builder.Services.AddMediatR(typeof(CreateUserCommandHandler).GetTypeInfo().Assembly);
 builder.Services.AddMediatR(typeof(CreateWorkExperienceCommandHandler).GetTypeInfo().Assembly);
 builder.Services.AddMediatR(typeof(CreateAboutCommandHandler).GetTypeInfo().Assembly);
-
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
@@ -68,13 +65,9 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
             ValidAudience = tokenOptions.Audience,
             ValidateIssuerSigningKey = true,
             IssuerSigningKey = SecurityKeyHelper.CreateSecurityKey(tokenOptions.SecurityKey)
-
         };
-
     });
-
 var app = builder.Build();
-
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
@@ -84,10 +77,7 @@ if (app.Environment.IsDevelopment())
 }
 app.UseCors(builder => builder.WithOrigins("http://localhost:3000").AllowAnyHeader());
 app.UseHttpsRedirection();
-
 app.UseAuthorization();
 app.UseAuthentication();
-
 app.MapControllers();
-
 app.Run();

@@ -11,6 +11,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using GriffonCMS.Domain.Entities.Category;
+using GriffonCMS.Infrastructure.DTOS.Categories;
 
 namespace Business.DependencyResolvers.Autofac;
 
@@ -35,6 +37,7 @@ public class AutofacBusinessModule : Module
         //birisi constructorında ıproduct gibi bir şey isterse biz ona product manager vericez
         builder.RegisterType<AuthManager>().As<IAuthService>();
         builder.RegisterType<JwtHelper>().As<ITokenHelper>();
+       
 
 
 
