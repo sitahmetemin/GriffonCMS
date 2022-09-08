@@ -11,6 +11,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using GriffonCMS.Domain.Entities.Category;
+using GriffonCMS.Infrastructure.DTOS.Categories;
 
 namespace Business.DependencyResolvers.Autofac;
 
@@ -20,11 +22,23 @@ public class AutofacBusinessModule : Module
     {
         builder.RegisterType<AdminRepository>().As<IAdminRepository>();
         builder.RegisterType<AdminManager>().As<IAdminService>();
+        builder.RegisterType<AboutRepository>().As<IAboutRepository>();
+        builder.RegisterType<BlogRepository>().As<IBlogRepository>();
         builder.RegisterType<CategoryRepository>().As<ICategoryRepository>();
+        builder.RegisterType<CommentRepository>().As<ICommentRepository>();
+        builder.RegisterType<ContactRepository>().As<IContactRepository>();
+        builder.RegisterType<InterestRepository>().As<IInterestRepository>();
+        builder.RegisterType<ProjectRepository>().As<IProjectRepository>();
+        builder.RegisterType<ReferenceRepository>().As<IReferenceRepository>();
+        builder.RegisterType<SkillRepository>().As<ISkillRepository>();
+        builder.RegisterType<TagRepository>().As<ITagRepository>();
+        builder.RegisterType<UserRepository>().As<IUserRepository>();
+        builder.RegisterType<WorkExperienceRepository>().As<IWorkExperienceRepository>();
         //birisi constructorında ıproduct gibi bir şey isterse biz ona product manager vericez
         builder.RegisterType<AuthManager>().As<IAuthService>();
         builder.RegisterType<JwtHelper>().As<ITokenHelper>();
        
+
 
 
     }
