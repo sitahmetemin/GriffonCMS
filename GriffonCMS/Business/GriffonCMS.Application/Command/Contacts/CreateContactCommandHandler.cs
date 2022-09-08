@@ -7,7 +7,7 @@ using AutoMapper;
 using GriffonCMS.Domain.Entities.Blog;
 using GriffonCMS.Domain.Entities.Contact;
 using GriffonCMS.Domain.Repositories;
-using GriffonCMS.Infrastructure.Command;
+using GriffonCMS.Infrastructure.Command.Contacts;
 using MediatR;
 
 namespace GriffonCMS.Application.Command.Contacts;

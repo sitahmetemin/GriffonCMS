@@ -7,7 +7,7 @@ using AutoMapper;
 using GriffonCMS.Core.Repositories;
 using GriffonCMS.Domain.Entities.Interest;
 using GriffonCMS.Domain.Repositories;
-using GriffonCMS.Infrastructure.Command;
+using GriffonCMS.Infrastructure.Command.Interests;
 using MediatR;
 
 namespace GriffonCMS.Application.Command.Interests
