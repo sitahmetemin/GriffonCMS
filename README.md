@@ -58,14 +58,27 @@ The system was built with N-Tier Architecture and Domain Driven Design (DDD) was
     - IRequest Objects
     - Requests (Http, ...)
     - Request/Response Adapters
+    - Request/Response Models
     - ...
 
 ### GriffonCMS.WebUI
 - It is the layer where only Interface related operations are applied.
     - Contollers
-    - Models
+    - View Models
     - Areas
     - Views
+
+## Architecture Map
+``` mermaid
+graph TD;
+    DB --> GriffonCMS.Persistance
+    GriffonCMS.Domain --> GriffonCMS.Persistance
+    GriffonCMS.Domain --> GriffonCMS.Infrastructure
+    GriffonCMS.Persistance --> GriffonCMS.Application
+    Vendor --> GriffonCMS.Infrastructure
+    GriffonCMS.Infrastructure --> GriffonCMS.Application;
+    GriffonCMS.Application --> GriffonCMS.WebUI;
+```
 
 
 
