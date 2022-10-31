@@ -33,32 +33,39 @@ dotnet ef migrations add [migrationName]
 ## Architecture Summary
 The system was built with N-Tier Architecture and Domain Driven Design (DDD) was adopted.
 
-GriffonCMS.Core
+### GriffonCMS.Persistance / GriffonCMS.Core
 - The database is the access layer.
     - DBContext
     - Repositories
 
-GriffonCMS.Application
+### GriffonCMS.Application / GriffonCMS.Business
 - Business Logic
-    - MediatR
-
-GriffonCMS.Domain
-- It is the layer where domain separation is provided.
-    - Entities
-    - Repository Interfaces
-
-GriffonCMS.Infrastructure
-- All infrastructure adjustments that the application will need are made in this layer.
-    - IRequest Objects
+    - MediatR - CQRS / Services
     - DTOS
     - Options
     - AutoMapper Profiles
     - Registrations
+
+### GriffonCMS.Domain
+- It is the layer where domain separation is provided.
+    - Entities
+    - Repository Interfaces
+    - Service Interfaces
     - ...
 
-GriffonCMS.WebUI
+### GriffonCMS.Infrastructure
+- You can access all external resources that the application will need through this layer.
+    - IRequest Objects
+    - Requests (Http, ...)
+    - Request/Response Adapters
+    - ...
+
+### GriffonCMS.WebUI
 - It is the layer where only Interface related operations are applied.
     - Contollers
+    - Models
+    - Areas
+    - Views
 
 
 
