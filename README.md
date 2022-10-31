@@ -31,34 +31,39 @@ dotnet ef migrations add [migrationName]
 ```
 
 ## Architecture Summary
-The system was built with N-Tier Architecture and Domain Driven Design (DDD) was adopted.
+The system was built with N-Tier Architecture and adopted Clean Architecture and Repository design pattern.
 
-### GriffonCMS.Persistance / GriffonCMS.Core
-- The database is the access layer.
-    - DBContext
-    - Repositories
+### GriffonCMS.Domain
+- It is the layer where domain separation is provided.
+    - Entities
+    - Service Interfaces
+    - ...
 
 ### GriffonCMS.Application / GriffonCMS.Business
 - Business Logic
     - MediatR - CQRS / Services
     - DTOS
-    - Options
+    - Validators
+    - Exceptions
     - AutoMapper Profiles
     - Registrations
+    - Repository Interfaces, ...
 
-### GriffonCMS.Domain
-- It is the layer where domain separation is provided.
-    - Entities
-    - Repository Interfaces
-    - Service Interfaces
+### GriffonCMS.Persistence / GriffonCMS.Core
+- The database is the access layer.
+    - DBContext
+    - Repositories
+    - Migrations
+    - DB Configurations
+    - Seedings
     - ...
 
 ### GriffonCMS.Infrastructure
 - You can access all external resources that the application will need through this layer.
     - IRequest Objects
-    - Requests (Http, ...)
     - Request/Response Adapters
     - Request/Response Models
+    - Example: Email/SMS/Notification
     - ...
 
 ### GriffonCMS.WebUI
@@ -71,13 +76,12 @@ The system was built with N-Tier Architecture and Domain Driven Design (DDD) was
 ## Architecture Map
 ``` mermaid
 graph TD;
-    DB --> GriffonCMS.Persistance
-    GriffonCMS.Domain --> GriffonCMS.Persistance
-    GriffonCMS.Domain --> GriffonCMS.Infrastructure
-    GriffonCMS.Persistance --> GriffonCMS.Application
-    Vendor --> GriffonCMS.Infrastructure
-    GriffonCMS.Infrastructure --> GriffonCMS.Application;
-    GriffonCMS.Application --> GriffonCMS.WebUI;
+    GriffonCMS.Domain --> GriffonCMS.Application
+    GriffonCMS.Application --> GriffonCMS.WebUI
+    GriffonCMS.Application --> GriffonCMS.Infrastructure
+    GriffonCMS.Infrastructure --> Vendor
+    GriffonCMS.Application --> GriffonCMS.Persistence
+    GriffonCMS.Persistence --> DB
 ```
 
 
