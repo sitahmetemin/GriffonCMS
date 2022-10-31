@@ -37,11 +37,14 @@ The system was built with N-Tier Architecture and adopted Clean Architecture and
 - It is the layer where domain separation is provided.
     - Entities
     - Service Interfaces
+    - Enumerations
+    - Exceptions
+    - Logic
     - ...
 
 ### GriffonCMS.Application / GriffonCMS.Business
 - Business Logic
-    - MediatR - CQRS / Services
+    - MediatR + CQRS / Services
     - DTOS
     - Validators
     - Exceptions
@@ -63,7 +66,9 @@ The system was built with N-Tier Architecture and adopted Clean Architecture and
     - IRequest Objects
     - Request/Response Adapters
     - Request/Response Models
-    - Example: Email/SMS/Notification
+    - Exp: Email/SMS/Notification
+    - File System
+    - Anything External
     - ...
 
 ### GriffonCMS.WebUI
