@@ -1,0 +1,37 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.8.34330.188
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GriffonCMS.Domain", "src\GriffonCMS.Domain\GriffonCMS.Domain.csproj", "{BF1EE654-0A3C-4E4E-B69D-9C2B08D7EAD3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GriffonCMS.Infrastructure", "src\GriffonCMS.Infrastructure\GriffonCMS.Infrastructure.csproj", "{F33A07F1-CCC8-41A3-952D-34283EB2ED0F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GriffonCMS.WebApp", "src\GriffonCMS.WebApp\GriffonCMS.WebApp.csproj", "{27A34C63-D851-4CF4-BE92-0DF5545D2129}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{BF1EE654-0A3C-4E4E-B69D-9C2B08D7EAD3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BF1EE654-0A3C-4E4E-B69D-9C2B08D7EAD3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BF1EE654-0A3C-4E4E-B69D-9C2B08D7EAD3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BF1EE654-0A3C-4E4E-B69D-9C2B08D7EAD3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F33A07F1-CCC8-41A3-952D-34283EB2ED0F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F33A07F1-CCC8-41A3-952D-34283EB2ED0F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F33A07F1-CCC8-41A3-952D-34283EB2ED0F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F33A07F1-CCC8-41A3-952D-34283EB2ED0F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{27A34C63-D851-4CF4-BE92-0DF5545D2129}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{27A34C63-D851-4CF4-BE92-0DF5545D2129}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{27A34C63-D851-4CF4-BE92-0DF5545D2129}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{27A34C63-D851-4CF4-BE92-0DF5545D2129}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {4CF097AB-1882-41F2-9081-174D987A72E6}
+	EndGlobalSection
+EndGlobal
