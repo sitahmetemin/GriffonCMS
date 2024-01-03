@@ -3,11 +3,19 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.8.34330.188
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GriffonCMS.Domain", "src\GriffonCMS.Domain\GriffonCMS.Domain.csproj", "{BF1EE654-0A3C-4E4E-B69D-9C2B08D7EAD3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GriffonCMS.Domain", "src\GriffonCMS.Domain\GriffonCMS.Domain.csproj", "{BF1EE654-0A3C-4E4E-B69D-9C2B08D7EAD3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GriffonCMS.Infrastructure", "src\GriffonCMS.Infrastructure\GriffonCMS.Infrastructure.csproj", "{F33A07F1-CCC8-41A3-952D-34283EB2ED0F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GriffonCMS.Infrastructure", "src\GriffonCMS.Infrastructure\GriffonCMS.Infrastructure.csproj", "{F33A07F1-CCC8-41A3-952D-34283EB2ED0F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GriffonCMS.WebApp", "src\GriffonCMS.WebApp\GriffonCMS.WebApp.csproj", "{27A34C63-D851-4CF4-BE92-0DF5545D2129}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GriffonCMS.WebApp", "src\GriffonCMS.WebApp\GriffonCMS.WebApp.csproj", "{27A34C63-D851-4CF4-BE92-0DF5545D2129}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{323C3D77-6317-4BF7-8BE5-6CCE86A59E33}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GriffonCMS.Domain.UnitTest", "src\Tests\GriffonCMS.Domain.UnitTest\GriffonCMS.Domain.UnitTest.csproj", "{82FB85F9-7665-4F06-97D2-2D8459F06037}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GriffonCMS.Infrastructure.UnitTest", "src\Tests\GriffonCMS.Infrastructure.UnitTest\GriffonCMS.Infrastructure.UnitTest.csproj", "{A875A103-ABD2-4062-A277-F382DACE7BC9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GriffonCMS.WebApp.UnitTest", "src\Tests\GriffonCMS.WebApp.UnitTest\GriffonCMS.WebApp.UnitTest.csproj", "{A9A16283-C243-4BE2-88F0-6B3AF5BF6DD0}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -27,9 +35,26 @@ Global
 		{27A34C63-D851-4CF4-BE92-0DF5545D2129}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{27A34C63-D851-4CF4-BE92-0DF5545D2129}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{27A34C63-D851-4CF4-BE92-0DF5545D2129}.Release|Any CPU.Build.0 = Release|Any CPU
+		{82FB85F9-7665-4F06-97D2-2D8459F06037}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{82FB85F9-7665-4F06-97D2-2D8459F06037}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{82FB85F9-7665-4F06-97D2-2D8459F06037}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{82FB85F9-7665-4F06-97D2-2D8459F06037}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A875A103-ABD2-4062-A277-F382DACE7BC9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A875A103-ABD2-4062-A277-F382DACE7BC9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A875A103-ABD2-4062-A277-F382DACE7BC9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A875A103-ABD2-4062-A277-F382DACE7BC9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A9A16283-C243-4BE2-88F0-6B3AF5BF6DD0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A9A16283-C243-4BE2-88F0-6B3AF5BF6DD0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A9A16283-C243-4BE2-88F0-6B3AF5BF6DD0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A9A16283-C243-4BE2-88F0-6B3AF5BF6DD0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{82FB85F9-7665-4F06-97D2-2D8459F06037} = {323C3D77-6317-4BF7-8BE5-6CCE86A59E33}
+		{A875A103-ABD2-4062-A277-F382DACE7BC9} = {323C3D77-6317-4BF7-8BE5-6CCE86A59E33}
+		{A9A16283-C243-4BE2-88F0-6B3AF5BF6DD0} = {323C3D77-6317-4BF7-8BE5-6CCE86A59E33}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {4CF097AB-1882-41F2-9081-174D987A72E6}

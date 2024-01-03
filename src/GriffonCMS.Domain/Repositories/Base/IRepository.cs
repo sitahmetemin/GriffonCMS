@@ -11,11 +11,12 @@ namespace GriffonCMS.Domain.Repositories.Base
 
         Task Delete(TPK id, CancellationToken cancellationToken = default);
 
-        Task<TEntity> Get(Expression<Func<TEntity, bool>> predicate, CancellationToken cancellationToken = default);
+        Task<TEntity> Get(Expression<Func<TEntity, bool>> predicate, bool eager = false, CancellationToken cancellationToken = default);
 
-        Task<IEnumerable<TEntity>> GetAll(Expression<Func<TEntity, bool>>? predicate = null, CancellationToken cancellationToken = default);
+        Task<IEnumerable<TEntity>> GetAll(Expression<Func<TEntity, bool>>? predicate = null, bool eager = false, CancellationToken cancellationToken = default);
 
-        Task<TEntity> GetById(TPK id, CancellationToken cancellationToken = default);
+        Task<TEntity> GetById(TPK id, bool eager = false, CancellationToken cancellationToken = default);
+
         Task Update(TEntity entity, CancellationToken cancellationToken = default);
     }
 }

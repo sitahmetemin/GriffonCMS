@@ -1,13 +1,15 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace GriffonCMS.Infrastructure.Contexts
 {
-    public class GriffonContext : DbContext
+    public partial class GriffonContext : DbContext
     {
+        public GriffonContext(DbContextOptions options) : base(options)
+        {
+        }
+
+        protected GriffonContext()
+        {
+        }
     }
 }

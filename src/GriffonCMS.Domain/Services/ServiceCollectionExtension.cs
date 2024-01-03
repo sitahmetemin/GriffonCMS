@@ -4,7 +4,7 @@ using Microsoft.Extensions.DependencyInjection;
 
 namespace GriffonCMS.Domain.Services
 {
-    public static class ServiceCollecitonExtension
+    public static class ServiceCollectionExtension
     {
         public static void RegisterServices(this IServiceCollection service)
         {

@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 namespace GriffonCMS.Domain.Models.Entities.Base
 {
     public class AuditEntity<TPK> : BaseEntity<TPK>
+        where TPK : struct
     {
         public DateTime CreatedDate { get; set; }
         public DateTime? ModifiedDate { get; set; }
