@@ -7,7 +7,7 @@ using System.Reflection;
 
 namespace GriffonCMS.Infrastructure.Repositories.Base
 {
-    public class Repository<TEntity, TPK> : IRepository<TEntity, TPK>, IUnitOfWork
+    public class Repository<TEntity, TPK> : IRepository<TEntity, TPK>
         where TEntity : BaseEntity<TPK>
         where TPK : struct
     {
