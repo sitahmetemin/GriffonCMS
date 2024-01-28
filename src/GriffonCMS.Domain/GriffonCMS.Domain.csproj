@@ -7,7 +7,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Models\DTOS\" />
     <Folder Include="MapperProfiles\" />
     <Folder Include="Utils\Constants\" />
     <Folder Include="Utils\Enums\" />

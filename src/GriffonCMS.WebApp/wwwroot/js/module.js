@@ -1,0 +1,8 @@
+const modules = {
+    main: () => {
+
+    },
+    assets: () => {
+
+    }
+};
