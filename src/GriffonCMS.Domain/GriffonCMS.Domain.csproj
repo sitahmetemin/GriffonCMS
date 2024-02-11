@@ -8,7 +8,6 @@
 
   <ItemGroup>
     <Folder Include="MapperProfiles\" />
-    <Folder Include="Utils\Constants\" />
     <Folder Include="Utils\Enums\" />
   </ItemGroup>
 

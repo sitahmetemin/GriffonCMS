@@ -1,9 +1,4 @@
 ﻿using GriffonCMS.Domain.Models.Entities.Base.Abstracition;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace GriffonCMS.Domain.Models.Entities.Base
 {
@@ -11,5 +6,6 @@ namespace GriffonCMS.Domain.Models.Entities.Base
         where TPK : struct
     {
         public TPK Id { get; set; }
+        public required Language Language { get; set; }
     }
 }
