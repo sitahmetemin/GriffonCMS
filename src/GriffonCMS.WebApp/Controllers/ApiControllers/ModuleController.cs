@@ -6,10 +6,7 @@ using GriffonCMS.WebApp.Controllers.ApiControllers.Base;
 
 namespace GriffonCMS.WebApp.Controllers.ApiControllers
 {
-    public class ModuleController : CrudController<ModuleService, ModuleDto, Module, Guid>
+    public class ModuleController : CrudController<ModuleService, ModuleDto, Module, int>
     {
-        public ModuleController(ModuleService service, IMapper mapper) : base(service, mapper)
-        {
-        }
     }
 }

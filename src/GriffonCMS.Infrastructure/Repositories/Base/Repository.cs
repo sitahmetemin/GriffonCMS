@@ -1,7 +1,9 @@
 ﻿using GriffonCMS.Domain.Models.Entities.Base;
 using GriffonCMS.Domain.Repositories.Base;
 using GriffonCMS.Infrastructure.Contexts;
+using Microsoft.AspNetCore.Http;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.DependencyInjection;
 using System.Linq.Expressions;
 
 namespace GriffonCMS.Infrastructure.Repositories.Base
@@ -10,10 +12,11 @@ namespace GriffonCMS.Infrastructure.Repositories.Base
         where TEntity : BaseEntity<TPK>
         where TPK : struct
     {
-        private readonly GriffonContext _context;
         private readonly DbSet<TEntity> _setEntity;
-
+        protected readonly GriffonContext Context;
         protected DbSet<TEntity> Entity => _setEntity;
+
+        protected virtual void Dispose(bool disposing) => Context.Dispose();
 
         protected void EagerLoad(bool eager, IQueryable<TEntity> query)
         {
@@ -31,13 +34,10 @@ namespace GriffonCMS.Infrastructure.Repositories.Base
             //    foreach (PropertyInfo property in typeof(TEntity).GetProperties().Where(q => q.PropertyType == typeof(BaseEntity<>)))
             //        query.Include(property.Name);
         }
-
-        protected virtual void Dispose(bool disposing) => _context.Dispose();
-
-        public Repository(GriffonContext context)
+        public Repository(IHttpContextAccessor httpContextAccessor)
         {
-            _context = context;
-            _setEntity = context.Set<TEntity>();
+            Context = (GriffonContext)httpContextAccessor.HttpContext.RequestServices.GetRequiredService(typeof(GriffonContext));
+            _setEntity = Context.Set<TEntity>();
         }
 
         public virtual async Task Create(TEntity entity, CancellationToken cancellationToken = default) => await _setEntity.AddAsync(entity, cancellationToken);
@@ -60,7 +60,7 @@ namespace GriffonCMS.Infrastructure.Repositories.Base
             var query = _setEntity.AsNoTracking();
             EagerLoad(eager, query);
 
-            return await query.FirstAsync(predicate, cancellationToken);
+            return await query.FirstOrDefaultAsync(predicate, cancellationToken);
         }
 
         public virtual async Task<IEnumerable<TEntity>> GetAll(Expression<Func<TEntity, bool>>? predicate = null, bool eager = false, CancellationToken cancellationToken = default)
@@ -78,10 +78,10 @@ namespace GriffonCMS.Infrastructure.Repositories.Base
         {
             var query = _setEntity.AsNoTracking();
             EagerLoad(eager, query);
-            return await query.FirstAsync(q => q.Id.Equals(id), cancellationToken);
+            return await query.FirstOrDefaultAsync(q => q.Id.Equals(id), cancellationToken);
         }
 
-        public virtual async Task<int> SaveChanges(CancellationToken cancellationToken = default) => await _context.SaveChangesAsync(cancellationToken);
+        public virtual async Task<int> SaveChanges(CancellationToken cancellationToken = default) => await Context.SaveChangesAsync(cancellationToken);
 
         public virtual async Task Update(TEntity entity, CancellationToken cancellationToken = default) => await Task.Run(() => _setEntity.Update(entity), cancellationToken);
     }

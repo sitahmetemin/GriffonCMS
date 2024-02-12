@@ -1,6 +1,8 @@
 ﻿using GriffonCMS.Domain.Models.Entities.Base;
 using GriffonCMS.Domain.Repositories.Base;
 using GriffonCMS.Domain.Services.Abstraction.Base;
+using Microsoft.AspNetCore.Http;
+using Microsoft.Extensions.DependencyInjection;
 using System.Linq.Expressions;
 
 namespace GriffonCMS.Domain.Services.Base
@@ -9,37 +11,35 @@ namespace GriffonCMS.Domain.Services.Base
         where TEntity : BaseEntity<TPK>
         where TPK : struct
     {
-        protected readonly IRepository<TEntity, TPK> _repository;
+        protected readonly IRepository<TEntity, TPK> Repository;
 
-        public CrudBaseService(IRepository<TEntity, TPK> repository)
+        public CrudBaseService(IHttpContextAccessor httpContext)
         {
-            ArgumentNullException.ThrowIfNull(nameof(repository));
-
-            _repository = repository;
+            Repository = (IRepository<TEntity, TPK>)httpContext.HttpContext.RequestServices.GetRequiredService(typeof(IRepository<TEntity, TPK>));
         }
 
         public virtual async Task Create(TEntity entity, CancellationToken cancellationToken = default)
         {
-            await _repository.Create(entity, cancellationToken);
-            await _repository.SaveChanges(cancellationToken);
+            await Repository.Create(entity, cancellationToken);
+            await Repository.SaveChanges(cancellationToken);
         }
 
         public virtual async Task Delete(TPK id, CancellationToken cancellationToken = default)
         {
-            await _repository.Delete(id, cancellationToken);
-            await _repository.SaveChanges(cancellationToken);
+            await Repository.Delete(id, cancellationToken);
+            await Repository.SaveChanges(cancellationToken);
         }
 
-        public virtual async Task<TEntity> Get(Expression<Func<TEntity, bool>> predicate, CancellationToken cancellationToken = default) => await _repository.Get(predicate, eager: false, cancellationToken);
+        public virtual async Task<TEntity> Get(Expression<Func<TEntity, bool>> predicate, CancellationToken cancellationToken = default) => await Repository.Get(predicate, eager: false, cancellationToken);
 
-        public virtual async Task<IEnumerable<TEntity>> GetAll(Expression<Func<TEntity, bool>>? predicate = null, CancellationToken cancellationToken = default) => await _repository.GetAll(cancellationToken: cancellationToken);
+        public virtual async Task<IEnumerable<TEntity>> GetAll(Expression<Func<TEntity, bool>>? predicate = null, CancellationToken cancellationToken = default) => await Repository.GetAll(cancellationToken: cancellationToken);
 
-        public virtual async Task<TEntity> GetById(TPK id, CancellationToken cancellationToken = default) => await _repository.GetById(id, eager: false, cancellationToken);
+        public virtual async Task<TEntity> GetById(TPK id, CancellationToken cancellationToken = default) => await Repository.GetById(id, eager: false, cancellationToken);
 
         public virtual async Task Update(TEntity entity, CancellationToken cancellationToken = default)
         {
-            await _repository.Update(entity, cancellationToken);
-            await _repository.SaveChanges(cancellationToken);
+            await Repository.Update(entity, cancellationToken);
+            await Repository.SaveChanges(cancellationToken);
         }
     }
 }

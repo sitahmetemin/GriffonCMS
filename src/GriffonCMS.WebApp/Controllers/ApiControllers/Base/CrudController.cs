@@ -12,13 +12,13 @@ namespace GriffonCMS.WebApp.Controllers.ApiControllers.Base
         where TEntity : BaseEntity<TPK>
         where TPK : struct
     {
-        private readonly TService _service;
-        private readonly IMapper _mapper;
+        protected readonly TService Service;
+        protected readonly IMapper Mapper;
 
-        public CrudController(TService service, IMapper mapper)
+        public CrudController()
         {
-            _service = service;
-            _mapper = mapper;
+            Service = (TService)HttpContext.RequestServices.GetRequiredService(typeof(TService));
+            Mapper = (IMapper)HttpContext.RequestServices.GetRequiredService(typeof(IMapper));
         }
 
         [HttpGet("get/{id}")]
@@ -26,7 +26,7 @@ namespace GriffonCMS.WebApp.Controllers.ApiControllers.Base
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         public virtual JsonResult Get(TPK id)
         {
-            var result = _service.GetById(id);
+            var result = Service.GetById(id);
             if (result is null)
                 NotFound();
 
@@ -38,7 +38,7 @@ namespace GriffonCMS.WebApp.Controllers.ApiControllers.Base
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         public virtual JsonResult List()
         {
-            var result = _service.GetAll();
+            var result = Service.GetAll();
             if (result is null)
                 NotFound();
 
@@ -50,9 +50,9 @@ namespace GriffonCMS.WebApp.Controllers.ApiControllers.Base
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         public virtual IActionResult Create(TDto request)
         {
-            var entity = _mapper.Map<TEntity>(request);
+            var entity = Mapper.Map<TEntity>(request);
 
-            var result = _service.Create(entity);
+            var result = Service.Create(entity);
             if (result != Task.CompletedTask)
                 BadRequest();
 
@@ -64,9 +64,9 @@ namespace GriffonCMS.WebApp.Controllers.ApiControllers.Base
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         public virtual IActionResult Update(TDto request)
         {
-            var entity = _mapper.Map<TEntity>(request);
+            var entity = Mapper.Map<TEntity>(request);
 
-            var result = _service.Update(entity);
+            var result = Service.Update(entity);
             if (result != Task.CompletedTask)
                 BadRequest();
 
@@ -78,7 +78,7 @@ namespace GriffonCMS.WebApp.Controllers.ApiControllers.Base
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         public virtual IActionResult Delete(TPK id)
         {
-            var result = _service.Delete(id);
+            var result = Service.Delete(id);
             if (result != Task.CompletedTask)
                 NotFound();
 
