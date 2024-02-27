@@ -11,11 +11,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GriffonCMS.WebApp", "src\Gr
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{323C3D77-6317-4BF7-8BE5-6CCE86A59E33}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GriffonCMS.Domain.UnitTest", "src\Tests\GriffonCMS.Domain.UnitTest\GriffonCMS.Domain.UnitTest.csproj", "{82FB85F9-7665-4F06-97D2-2D8459F06037}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GriffonCMS.Domain.UnitTest", "src\Tests\GriffonCMS.Domain.UnitTest\GriffonCMS.Domain.UnitTest.csproj", "{82FB85F9-7665-4F06-97D2-2D8459F06037}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GriffonCMS.Infrastructure.UnitTest", "src\Tests\GriffonCMS.Infrastructure.UnitTest\GriffonCMS.Infrastructure.UnitTest.csproj", "{A875A103-ABD2-4062-A277-F382DACE7BC9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GriffonCMS.Infrastructure.UnitTest", "src\Tests\GriffonCMS.Infrastructure.UnitTest\GriffonCMS.Infrastructure.UnitTest.csproj", "{A875A103-ABD2-4062-A277-F382DACE7BC9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GriffonCMS.WebApp.UnitTest", "src\Tests\GriffonCMS.WebApp.UnitTest\GriffonCMS.WebApp.UnitTest.csproj", "{A9A16283-C243-4BE2-88F0-6B3AF5BF6DD0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GriffonCMS.WebApp.UnitTest", "src\Tests\GriffonCMS.WebApp.UnitTest\GriffonCMS.WebApp.UnitTest.csproj", "{A9A16283-C243-4BE2-88F0-6B3AF5BF6DD0}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

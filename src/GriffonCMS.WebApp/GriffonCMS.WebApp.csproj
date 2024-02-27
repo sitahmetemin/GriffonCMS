@@ -42,4 +42,10 @@
     </Content>
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Views\Content\" />
+    <Folder Include="Views\Module\" />
+    <Folder Include="Views\Layout\" />
+  </ItemGroup>
+
 </Project>
